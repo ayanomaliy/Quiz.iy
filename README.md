@@ -195,13 +195,13 @@ pip install pyinstaller
 Run this command inside the project folder:
 
 ```
-py -m PyInstaller --onefile --name quiz main.py
+py -m PyInstaller --onefile --name quiziy main.py
 ```
 
 The executable will be created in:
 
 ```
-dist/quiz.exe
+dist/quiziy.exe
 ```
 
 You can then distribute **only this file**.
@@ -221,37 +221,7 @@ python main.py
 Or using the compiled executable:
 
 ```
-quiz.exe
-```
-
----
-
-# Project Structure
-
-Example structure:
-
-```
-quiz_app/
-│
-├─ main.py
-├─ README.md
-│
-├─ quiz/
-│  ├─ loader.py
-│  ├─ engine.py
-│  ├─ storage.py
-│  ├─ creator.py
-│  ├─ commands.py
-│  ├─ prompt.py
-│  ├─ completer.py
-│  ├─ help_text.py
-│  └─ ui.py
-│
-├─ quizzes/
-│  └─ example.csv
-│
-└─ progress/
-   └─ wrong_questions.json
+quiziy.exe
 ```
 
 ---
