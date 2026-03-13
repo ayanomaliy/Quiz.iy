@@ -71,7 +71,7 @@ def get_help_text() -> str:
         "",
         cyan(bold("Typical workflow:")),
         "1. Create a CSV file.",
-        "2. Register it with /register <path_to_csv>",
+        "2. Register it with /register <path_to_csv> or simply copy the .csv file into the quizzes folder.",
         "3. Either create one with /create <quizname> or register one with /register <path_to_csv>",
         "4. View available quizzes with /quizzes",
         "5. Start one with /start quizname.csv -a",
