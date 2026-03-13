@@ -16,6 +16,8 @@ from quiz.ui import (
     print_title,
 )
 
+from quiz.prompt import QuizPrompt
+
 
 def get_base_dir() -> Path:
     if getattr(sys, "frozen", False):
@@ -80,13 +82,14 @@ def main():
     loader = QuizLoader(QUIZZES_DIR)
     store = ProgressStore(PROGRESS_FILE)
     engine = QuizEngine(store)
+    quiz_prompt = QuizPrompt(QUIZZES_DIR)
 
     print_logo()
     print("A simple modular quiz app that lets you test yourself using custom quizzes.\n")
 
     while True:
         print_main_menu()
-        user_input = input("\nCommand: ").strip()
+        user_input = quiz_prompt.ask("\nCommand: ")
 
         if user_input == "/exit":
             print("Program closed.")
