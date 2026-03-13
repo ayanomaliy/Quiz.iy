@@ -17,6 +17,7 @@ from quiz.ui import (
 )
 
 from quiz.prompt import QuizPrompt
+from quiz.creator import QuizCreator
 
 
 def get_base_dir() -> Path:
@@ -83,6 +84,7 @@ def main():
     store = ProgressStore(PROGRESS_FILE)
     engine = QuizEngine(store)
     quiz_prompt = QuizPrompt(QUIZZES_DIR)
+    creator = QuizCreator(QUIZZES_DIR)
 
     print_logo()
     print("A simple modular quiz app that lets you test yourself using custom quizzes.\n")
@@ -106,6 +108,11 @@ def main():
         elif command_type == "register":
             register_quiz(payload["path"])
 
+        elif command_type == "create":
+            created_name = creator.create_quiz_interactive(payload["quiz_name"])
+            if created_name:
+                print_success(f"\nQuiz created successfully: {created_name}")
+
         elif command_type == "start":
             quiz_name = payload["quiz_name"]
             mode = payload["mode"]
@@ -125,7 +132,6 @@ def main():
 
         else:
             print_error(f"\nError: {payload}")
-
 
 if __name__ == "__main__":
     main()

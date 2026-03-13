@@ -9,6 +9,7 @@ class QuizCompleter(Completer):
             "/help",
             "/quizzes",
             "/register",
+            "/create",
             "/start",
             "/exit",
             "/github",

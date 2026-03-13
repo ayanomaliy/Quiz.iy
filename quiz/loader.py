@@ -4,7 +4,8 @@ from quiz.models import Question, QuizSet
 
 
 class QuizLoader:
-    REQUIRED_FIELDS = {"question", "options", "correct"}
+    REQUIRED_FIELDS = {"type", "question", "options", "correct"}
+    VALID_TYPES = {"multiplechoice", "text"}
 
     def __init__(self, quizzes_dir: Path):
         self.quizzes_dir = quizzes_dir
@@ -31,40 +32,68 @@ class QuizLoader:
                 )
 
             for row_number, row in enumerate(reader, start=2):
+                qtype = row["type"].strip().lower()
                 question_text = row["question"].strip()
-
-                options = [opt.strip() for opt in row["options"].split("|") if opt.strip()]
-                if len(options) < 2:
-                    raise ValueError(
-                        f"Question in {quiz_name}, line {row_number} must have at least 2 options."
-                    )
-
+                options_raw = row["options"].strip()
                 correct_raw = row["correct"].strip()
 
-                if correct_raw == "":
-                    correct = set()
-                else:
-                    try:
-                        correct = {
-                            int(x.strip())
-                            for x in correct_raw.split("|")
-                            if x.strip()
-                        }
-                    except ValueError:
+                if qtype not in self.VALID_TYPES:
+                    raise ValueError(
+                        f"Invalid question type '{qtype}' in {quiz_name}, line {row_number}. "
+                        f"Allowed: multiplechoice, text"
+                    )
+
+                if qtype == "multiplechoice":
+                    options = [opt.strip() for opt in options_raw.split("|") if opt.strip()]
+                    if len(options) < 2:
                         raise ValueError(
-                            f"Invalid correct-answer format in {quiz_name}, line {row_number}."
+                            f"Multiple choice question in {quiz_name}, line {row_number} "
+                            f"must have at least 2 options."
                         )
 
-                if any((i < 1 or i > len(options)) for i in correct):
-                    raise ValueError(
-                        f"Correct answer index out of range in {quiz_name}, line {row_number}."
-                    )
+                    if correct_raw == "":
+                        correct = set()
+                    else:
+                        parts = [x.strip() for x in correct_raw.split("|") if x.strip()]
+                        if not all(part.isdigit() for part in parts):
+                            raise ValueError(
+                                f"Invalid correct-answer format in {quiz_name}, line {row_number}. "
+                                f"Use numbers like 2 or 1|3|4."
+                            )
+                        correct = set(parts)
+
+                    if any(int(i) < 1 or int(i) > len(options) for i in correct):
+                        raise ValueError(
+                            f"Correct answer index out of range in {quiz_name}, line {row_number}."
+                        )
+
+                else:  # text
+                    options = []
+
+                    if correct_raw == "":
+                        raise ValueError(
+                            f"Text question in {quiz_name}, line {row_number} "
+                            f"must have at least one expected answer token in 'correct'."
+                        )
+
+                    correct = {
+                        token.strip().lower()
+                        for token in correct_raw.split("|")
+                        if token.strip()
+                    }
+
+                    if not correct:
+                        raise ValueError(
+                            f"Text question in {quiz_name}, line {row_number} "
+                            f"must have at least one expected answer token."
+                        )
 
                 qid = f"{quiz_name}::{row_number}"
 
                 questions.append(
                     Question(
                         id=qid,
+                        qtype=qtype,
                         text=question_text,
                         options=options,
                         correct=correct,

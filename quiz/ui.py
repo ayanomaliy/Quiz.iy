@@ -70,6 +70,7 @@ def print_main_menu():
     print("  /help")
     print("  /quizzes")
     print("  /register <path_to_csv>")
+    print("  /create <quizname>")
     print("  /start quizname.csv -a")
     print("  /start quizname.csv -w")
     print("  /exit")

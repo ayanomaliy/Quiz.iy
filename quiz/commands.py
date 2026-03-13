@@ -17,6 +17,11 @@ def parse_command(user_input: str):
             return ("invalid", "Usage: /register <path_to_csv>")
         return ("register", {"path": parts[1].strip()})
 
+    if command == "/create":
+        if len(parts) != 2:
+            return ("invalid", "Usage: /create <quizname>")
+        return ("create", {"quiz_name": parts[1].strip()})
+
     if command == "/start":
         start_parts = user_input.strip().split()
         if len(start_parts) != 3:
