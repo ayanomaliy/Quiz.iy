@@ -1,5 +1,6 @@
 import csv
 from pathlib import Path
+from quiz.ui import print_separator, print_title, print_warning, print_success
 
 
 class QuizCreator:
@@ -21,7 +22,8 @@ class QuizCreator:
 
         rows = []
 
-        print("\nCreating a new quiz.")
+        print_separator("=")
+        print_title("Creating a New Quiz")
         print("Type /done at any main prompt to finish creating the quiz.\n")
 
         while True:

@@ -1,0 +1,31 @@
+type;question;options;correct
+multiplechoice;Which characteristics are typical for a project?;Temporary duration|Unique goal or product|Unlimited resources|Defined start and end|Routine repetitive work;1|2|4
+multiplechoice;Which of the following are typical phases of a project lifecycle?;Initiation|Planning|Execution|Maintenance of unrelated systems|Closing;1|2|3|5
+multiplechoice;Which factors belong to the classic project management triangle?;Time|Cost|Scope|Weather|Quality;1|2|3
+multiplechoice;What are common responsibilities of a project manager?;Coordinating team members|Defining project goals|Ignoring stakeholder needs|Monitoring progress|Managing risks;1|2|4|5
+multiplechoice;Which methods are commonly used for project planning?;Gantt charts|PERT charts|Random guessing|Work breakdown structures|Milestone planning;1|2|4|5
+multiplechoice;What is the purpose of a Work Breakdown Structure (WBS)?;Break a project into manageable tasks|Represent the organizational hierarchy of a company|Structure project deliverables|Clarify responsibilities|Replace project documentation entirely;1|3|4
+multiplechoice;Which of the following are examples of project stakeholders?;Customers|Project team members|Investors|Random internet users|Suppliers;1|2|3|5
+multiplechoice;Which statements about milestones are correct?;They represent significant checkpoints|They usually mark important results|They are always daily tasks|They help track progress;1|2|4
+multiplechoice;Which activities belong to project risk management?;Identifying risks|Analyzing potential impact|Ignoring uncertainties|Developing mitigation strategies|Monitoring risks;1|2|4|5
+multiplechoice;Which communication practices are useful in project management?;Regular team meetings|Clear documentation|Avoiding feedback|Status reports|Transparent communication;1|2|4|5
+multiplechoice;Which characteristics are typical for agile project management?;Iterative development|Frequent feedback cycles|Strict long-term plans that never change|Continuous improvement|Customer collaboration;1|2|4|5
+multiplechoice;Which artifacts are typical in Scrum?;Product backlog|Sprint backlog|Sprint review|Random brainstorming log|Increment;1|2|3|5
+multiplechoice;What are advantages of iterative development?;Early feedback|Gradual improvement|Reduced adaptability|Better risk detection;1|2|4
+multiplechoice;Which tasks belong to project monitoring and controlling?;Tracking schedule progress|Comparing actual vs planned results|Ignoring deviations|Adjusting project plans|Reporting status;1|2|4|5
+multiplechoice;Which factors can cause project failure?;Poor communication|Unclear goals|Unmanaged risks|Adequate planning|Lack of stakeholder involvement;1|2|3|5
+multiplechoice;Which metrics are commonly used to track project progress?;Completion percentage|Schedule variance|Cost variance|Random numbers|Earned value;1|2|3|5
+multiplechoice;Which practices improve teamwork in projects?;Clear role definitions|Regular feedback|Lack of coordination|Shared goals|Trust among team members;1|2|4|5
+multiplechoice;Which documents are common in project management?;Project charter|Requirements specification|Status report|Personal diary|Risk register;1|2|3|5
+multiplechoice;Which roles may exist in a Scrum team?;Product owner|Scrum master|Development team|Chief executive officer|Stakeholder representative;1|2|3
+multiplechoice;Which statements about project scope are correct?;It defines what is included in the project|It determines project deliverables|It should remain completely undefined|It helps prevent scope creep;1|2|4
+multiplechoice;Which tools are commonly used for project tracking?;Kanban boards|Gantt charts|Issue trackers|Lottery systems|Task management tools;1|2|3|5
+multiplechoice;Which elements belong to effective project documentation?;Clear structure|Traceable decisions|Up-to-date information|Hidden files nobody reads|Accessibility for team members;1|2|3|5
+multiplechoice;Which activities occur during project initiation?;Defining objectives|Identifying stakeholders|Allocating infinite resources|Creating a high-level plan;1|2|4
+multiplechoice;Which qualities are important for effective project leadership?;Communication skills|Decision-making ability|Ignoring team members|Conflict resolution|Responsibility;1|2|4|5
+multiplechoice;Which factors influence project complexity?;Number of stakeholders|Technological uncertainty|Team size|Random luck only|Interdependencies between tasks;1|2|3|5
+multiplechoice;Which techniques help estimate project effort?;Expert judgment|Analogous estimation|Planning poker|Random guessing|Historical data analysis;1|2|3|5
+multiplechoice;Which statements about stakeholder management are correct?;Stakeholders influence project success|Their expectations should be managed|They can be ignored once the project starts|Communication with them is important;1|2|4
+multiplechoice;Which activities belong to project closing?;Delivering final results|Evaluating project performance|Documenting lessons learned|Starting a completely new project immediately|Releasing project resources;1|2|3|5
+multiplechoice;Which are benefits of good project planning?;Clear goals|Better resource allocation|Reduced uncertainty|Guaranteed success in every case|Improved coordination;1|2|3|5
+multiplechoice;Which challenges commonly occur in projects?;Changing requirements|Limited resources|Time pressure|Perfect predictability|Communication problems;1|2|3|5

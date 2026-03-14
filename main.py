@@ -8,8 +8,10 @@ from quiz.engine import QuizEngine
 from quiz.commands import parse_command
 from quiz.help_text import get_help_text
 from quiz.ui import (
+    clear_screen,
     print_main_menu,
     print_logo,
+    print_intro,
     print_error,
     print_success,
     print_warning,
@@ -86,8 +88,9 @@ def main():
     quiz_prompt = QuizPrompt(QUIZZES_DIR)
     creator = QuizCreator(QUIZZES_DIR)
 
+    clear_screen()
     print_logo()
-    print("A simple modular quiz app that lets you test yourself using custom quizzes.\n")
+    print_intro()
 
     while True:
         print_main_menu()

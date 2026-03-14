@@ -1,12 +1,23 @@
 import random
+import quiz
 from quiz.models import QuizSet, Question
 from quiz.storage import ProgressStore
-from quiz.ui import print_success, print_error, print_warning, cyan, bold
+from quiz.ui import (
+    print_success,
+    print_error,
+    print_warning,
+    print_title,
+    print_separator,
+    bold,
+    cyan,
+)
+from quiz.ai_helper import AIHelper
 
 
 class QuizEngine:
     def __init__(self, progress_store: ProgressStore):
         self.progress_store = progress_store
+        self.ai_helper = AIHelper()
 
     def run_quiz(self, quiz: QuizSet, mode: str) -> None:
         wrong_ids = self.progress_store.get_wrong_ids(quiz.name)
@@ -35,8 +46,9 @@ class QuizEngine:
                 return
 
             asked_count += 1
+            was_correct = result == question.correct
 
-            if result == question.correct:
+            if was_correct:
                 if question.qtype == "multiplechoice" and len(question.correct) == 0:
                     print_success("Correct! Indeed, none of the answers is correct.\n")
                 else:
@@ -59,14 +71,18 @@ class QuizEngine:
 
                 self.progress_store.add_wrong(quiz.name, question.id)
 
-        print(cyan("=" * 50))
+            follow_up = self.post_answer_phase(question)
+            if follow_up == "quit":
+                print("\nReturning to main menu.")
+                return
+        print_separator("=")
         print(cyan(bold(f"Quiz finished: {quiz.name}")))
         print(f"Correctly answered: {correct_count}/{asked_count}")
         print(f"Still saved as wrong: {len(self.progress_store.get_wrong_ids(quiz.name))}")
-        print(cyan("=" * 50))
+        print_separator("=", leading_newline=False)
 
     def ask_question(self, question: Question):
-        print(cyan("-" * 50))
+        print_separator("-")
         print(cyan(bold(f"Question: {question.text}\n")))
 
         if question.qtype == "multiplechoice":
@@ -81,7 +97,6 @@ class QuizEngine:
             else:
                 print("\nEnter all correct answer numbers separated by spaces.")
                 print("Example: 1 3 5")
-
         else:
             print("Type your answer words separated by spaces.")
             print("Word order does not matter.")
@@ -105,6 +120,28 @@ class QuizEngine:
             else:
                 print_warning("Invalid input. Please enter words separated by spaces.")
 
+    def post_answer_phase(self, question: Question):
+        print_title("Follow-up")
+        print("Press Enter for the next question.")
+        print("Or type a question to ask the local AI about this quiz question.")
+        print("Use /quit to return to the main menu.")
+
+        while True:
+            user_input = input("\nFollow-up: ").strip()
+
+            if user_input == "":
+                return "next"
+
+            if user_input == "/quit":
+                return "quit"
+
+            ai_response = self.ai_helper.ask_about_question(question, user_input)
+            print()
+            print_title("AI Response")
+            print(ai_response)
+            print()
+            print("Press Enter for the next question, ask another question, or type /quit.")
+
     def parse_answer(self, user_input: str, qtype: str):
         if qtype == "multiplechoice":
             if user_input == "":
@@ -121,14 +158,13 @@ class QuizEngine:
 
             return set(parts)
 
-        else:  # text
-            if user_input == "":
-                return set()
+        if user_input == "":
+            return set()
 
-            normalized = user_input.replace(",", " ")
-            parts = [p.strip().lower() for p in normalized.split() if p.strip()]
+        normalized = user_input.replace(",", " ")
+        parts = [p.strip().lower() for p in normalized.split() if p.strip()]
 
-            if not parts:
-                return set()
+        if not parts:
+            return set()
 
-            return set(parts)
+        return set(parts)

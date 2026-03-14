@@ -1,11 +1,11 @@
-from quiz.ui import cyan, bold
+from quiz.ui import cyan, bold, horizontal_rule
 
 
 def get_help_text() -> str:
     lines = [
-        cyan(bold("=" * 60)),
+        cyan(bold(horizontal_rule("="))),
         cyan(bold("QUIZ PROGRAM HELP")),
-        cyan(bold("=" * 60)),
+        cyan(bold(horizontal_rule("="))),
         "",
         cyan(bold("Available commands:")),
         "/help",
@@ -26,7 +26,12 @@ def get_help_text() -> str:
         cyan(bold("During a quiz:")),
         "/quit",
         "    Stop the current quiz and return to the main menu.",
-        "",
+        "After answering a question:",
+        "    Press Enter to continue to the next question.",
+        "    Or type a follow-up question to ask the local AI about the current quiz question.",
+        "If local AI is not available:",
+        "    The program can offer to open the Ollama download page",
+        "    or try an automatic installation with winget.",
         cyan(bold("CSV format:")),
         "Your CSV file must use these exact headers:",
         "type;question;options;correct",
@@ -77,6 +82,6 @@ def get_help_text() -> str:
         "5. Start one with /start quizname.csv -a",
         "6. Later review mistakes with /start quizname.csv -w",
         "",
-        cyan(bold("=" * 60)),
+        cyan(bold(horizontal_rule("="))),
     ]
     return "\n".join(lines)
