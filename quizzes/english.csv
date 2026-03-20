@@ -1,0 +1,46 @@
+type;question;options;correct
+multiplechoice;Which word means Schienbein?;calf|shin|thigh|heel;2
+multiplechoice;Which word means Kehle or Rachen?;chin|cheek|throat|tongue;3
+multiplechoice;Which word means Bluterguss?;rash|bruise|blister|wound;2
+multiplechoice;Which word means sich verschlucken?;to faint|to choke|to bleed|to swell;2
+multiplechoice;Which word means ansteckend?;urgent|contagious|harmful|fatal;2
+text;Give the English words for these German body words: Schienbein, Kehle, Bluterguss;;shin|throat|bruise
+text;Give three fitness-related words from the topic Looking after yourself;;stamina|flexibility|calories
+text;Give three English words related to illness and injury from the health topic;;fever|wound|infection
+text;Give three English exercise words from the sheets;;stretch|pilates|spinning
+text;Give the modal auxiliaries from this set: can, must, should, may;;can|must|should|may
+sentence;Turn this German sentence into an English sentence: Du musst sofort einen Krankenwagen rufen.;;you must call an ambulance immediately
+sentence;Turn this German sentence into an English sentence: Er darf jetzt nach Hause gehen.;;he may go home now
+sentence;Turn this German sentence into an English sentence: Du darfst die Wunde nicht berühren.;;you mustn't touch the wound
+sentence;Turn this German sentence into an English sentence: Wir müssen zur Notaufnahme gehen.;;we must go to a&e|we must go to the emergency department
+sentence;Turn this German sentence into an English sentence: Sie müssen die Tabletten jetzt nehmen.;;they must take the tablets now
+sentence;Turn this German sentence into an English sentence: Du musst heute nicht ins Fitnesscenter gehen.;;you needn't go to the gym today|you do not need to go to the gym today|you don't need to go to the gym today
+sentence;Turn this German sentence into an English sentence: Ihr solltet mehr Herz-Kreislauf-Übungen machen.;;you should do more cardio exercises
+sentence;Turn this German sentence into an English sentence: Du solltest deine Muskeln dehnen.;;you should stretch your muscles
+sentence;Turn this German sentence into an English sentence: Er kann wegen der Verletzung nicht laufen.;;he can't walk because of the injury|he cannot walk because of the injury
+sentence;Turn this German sentence into an English sentence: Kannst du den Schmerz beschreiben?;;can you describe the pain
+sentence;Turn this German sentence into an English sentence: Sie kann wegen des Fiebers nicht arbeiten.;;she can't work because of the fever|she cannot work because of the fever
+sentence;Turn this German sentence into an English sentence: Du solltest wegen der Halsschmerzen zum Hausarzt gehen.;;you should go to the gp because of the sore throat|you should go to the doctor because of the sore throat
+sentence;Turn this German sentence into an English sentence: Er muss eine Spritze bekommen.;;he must get an injection
+sentence;Turn this German sentence into an English sentence: Wir sollten mehr Kalorien verbrennen.;;we should burn more calories
+sentence;Turn this German sentence into an English sentence: Sie dürfen den Verband nicht entfernen.;;they mustn't remove the bandage
+sentence;Turn this German sentence into an English sentence: Du musst dein Immunsystem stärken.;;you must strengthen your immune system
+sentence;Turn this German sentence into an English sentence: Ich kann wegen der Kopfschmerzen nicht schlafen.;;i can't sleep because of the headache|i cannot sleep because of the headache
+sentence;Turn this German sentence into an English sentence: Er sollte mehr Wasser trinken, weil er Fieber hat.;;he should drink more water because he has a fever
+sentence;Turn this German sentence into an English sentence: Sie müssen den Patienten sofort behandeln.;;they must treat the patient immediately
+sentence;Turn this German sentence into an English sentence: Du darfst die bakterielle Infektion nicht ignorieren.;;you mustn't ignore the bacterial infection
+sentence;Turn this German sentence into an English sentence: Wir können morgen Pilates machen.;;we can do pilates tomorrow
+sentence;Turn this German sentence into an English sentence: Du musst wegen der Prellung Eis auflegen.;;you must put ice on the bruise
+sentence;Turn this German sentence into an English sentence: Sie sollten ihren Blutdruck kontrollieren lassen.;;they should have their blood pressure checked
+sentence;Turn this German sentence into an English sentence: Er darf wegen der Operation nichts essen.;;he mustn't eat anything because of the operation
+sentence;Turn this German sentence into an English sentence: Du musst dich um deine Gesundheit kümmern.;;you must take care of your health
+sentence;Turn this German sentence into an English sentence: Wir sollten mehr auf unsere Fitness achten.;;we should pay more attention to our fitness
+sentence;Turn this German sentence into an English sentence in the past: Er musste ins Spital gehen, weil er ohnmächtig wurde.;;he had to go to the hospital because he fainted
+sentence;Turn this German sentence into an English sentence in the past: Sie durfte wegen der ansteckenden Krankheit nicht zur Arbeit gehen.;;she wasn't allowed to go to work because of the contagious illness|she was not allowed to go to work because of the contagious illness
+sentence;Turn this German sentence into an English sentence in the past: Ich konnte wegen der Schmerzen nicht atmen.;;i couldn't breathe because of the pain|i could not breathe because of the pain
+sentence;Turn this German sentence into an English sentence in the past: Wir mussten eine Quarantäne einhalten.;;we had to keep a quarantine|we had to stay in quarantine
+sentence;Turn this German sentence into an English sentence in the future: Du wirst mehr Ausdauer brauchen.;;you will need more stamina
+sentence;Turn this German sentence into an English sentence in the future: Sie werden ihre Flexibilität verbessern müssen.;;they will have to improve their flexibility
+sentence;Turn this German sentence into an English sentence using should have: Du hättest sofort Erste Hilfe leisten sollen.;;you should have given first aid immediately|you should have provided first aid immediately
+sentence;Turn this German sentence into an English sentence using shouldn't have: Du hättest die Symptome nicht ignorieren sollen.;;you shouldn't have ignored the symptoms|you should not have ignored the symptoms
+sentence;Turn this German sentence into an English sentence using should have: Ihr hättet den Arzt früher anrufen sollen.;;you should have called the doctor earlier

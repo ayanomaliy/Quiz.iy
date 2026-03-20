@@ -5,7 +5,7 @@ from quiz.models import Question, QuizSet
 
 class QuizLoader:
     REQUIRED_FIELDS = {"type", "question", "options", "correct"}
-    VALID_TYPES = {"multiplechoice", "text"}
+    VALID_TYPES = {"multiplechoice", "text", "sentence"}
 
     def __init__(self, quizzes_dir: Path):
         self.quizzes_dir = quizzes_dir

@@ -84,8 +84,8 @@ def print_quizzes(loader: QuizLoader, store: ProgressStore):
 def main():
     loader = QuizLoader(QUIZZES_DIR)
     store = ProgressStore(PROGRESS_FILE)
-    engine = QuizEngine(store)
     quiz_prompt = QuizPrompt(QUIZZES_DIR)
+    engine = QuizEngine(store, quiz_prompt)
     creator = QuizCreator(QUIZZES_DIR)
 
     clear_screen()

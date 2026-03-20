@@ -230,7 +230,6 @@ Important rules:
 
 Preferred answer structure:
 - Direct answer
-- Why this is correct from the quiz data
 - [Additional explanation not explicitly from quiz data] if needed
 - [Not available from the provided quiz data] if relevant
 

@@ -1,5 +1,4 @@
 import random
-import quiz
 from quiz.models import QuizSet, Question
 from quiz.storage import ProgressStore
 from quiz.ui import (
@@ -15,9 +14,10 @@ from quiz.ai_helper import AIHelper
 
 
 class QuizEngine:
-    def __init__(self, progress_store: ProgressStore):
+    def __init__(self, progress_store: ProgressStore, quiz_prompt):
         self.progress_store = progress_store
         self.ai_helper = AIHelper()
+        self.quiz_prompt = quiz_prompt
 
     def run_quiz(self, quiz: QuizSet, mode: str) -> None:
         wrong_ids = self.progress_store.get_wrong_ids(quiz.name)
@@ -66,7 +66,7 @@ class QuizEngine:
                         )
                         print_error(f"Wrong! Correct answer(s): {correct_text}\n")
                 else:
-                    correct_text = " ".join(sorted(question.correct))
+                    correct_text = " ".join(question.correct)
                     print_error(f"Wrong! Expected answer tokens: {correct_text}\n")
 
                 self.progress_store.add_wrong(quiz.name, question.id)
@@ -75,6 +75,7 @@ class QuizEngine:
             if follow_up == "quit":
                 print("\nReturning to main menu.")
                 return
+
         print_separator("=")
         print(cyan(bold(f"Quiz finished: {quiz.name}")))
         print(f"Correctly answered: {correct_count}/{asked_count}")
@@ -103,7 +104,7 @@ class QuizEngine:
             print("Example: go went gone")
 
         while True:
-            user_input = input("\nYour answer: ").strip()
+            user_input = self.quiz_prompt.ask("\nYour answer: ", commands=["/quit"])
 
             if user_input == "/quit":
                 return "quit"
@@ -127,7 +128,7 @@ class QuizEngine:
         print("Use /quit to return to the main menu.")
 
         while True:
-            user_input = input("\nFollow-up: ").strip()
+            user_input = self.quiz_prompt.ask("\nFollow-up: ", commands=["/quit"])
 
             if user_input == "":
                 return "next"
@@ -168,3 +169,10 @@ class QuizEngine:
             return set()
 
         return set(parts)
+    
+def normalize_sentence(text: str) -> str:
+    text = text.strip().lower()
+    text = " ".join(text.split())
+    if text.endswith((".", "!", "?")):
+        text = text[:-1].rstrip()
+    return text
