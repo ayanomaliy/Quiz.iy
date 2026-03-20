@@ -16,6 +16,10 @@ The program supports:
 
 ---
 
+## Download
+
+[Download for Windows](https://github.com/ayanomaliy/Quiz.iy/releases/latest/download/Quiz.iy-Setup.exe)
+
 # Features
 
 * Custom quizzes stored as CSV files
