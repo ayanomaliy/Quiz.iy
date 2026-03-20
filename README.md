@@ -18,7 +18,7 @@ The program supports:
 
 ## Download
 
-[Download for Windows](https://github.com/ayanomaliy/Quiz.iy/releases/latest/download/Quiz.iy-Setup.exe)
+[Download for Windows](https://github.com/ayanomaliy/Quiz.iy/blob/main/installer-output/Quiz.iy-Setup.exe)
 
 # Features
 
