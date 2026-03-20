@@ -12,7 +12,8 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-DefaultDirName={autopf}\Quiz.iy
+PrivilegesRequired=lowest
+DefaultDirName={userdocs}\Quiz.iy
 DefaultGroupName=Quiz.iy
 DisableDirPage=no
 AllowNoIcons=yes
@@ -37,3 +38,43 @@ Name: "{autodesktop}\Quiz.iy"; Filename: "{app}\quiziy.exe"; Tasks: desktopicon
 
 [Run]
 Filename: "{app}\quiziy.exe"; Description: "Launch Quiz.iy"; Flags: nowait postinstall skipifsilent
+
+[Code]
+function StartsWithText(const Prefix, S: string): Boolean;
+begin
+  Result := CompareText(Copy(S, 1, Length(Prefix)), Prefix) = 0;
+end;
+
+function IsInProgramFiles(const DirName: string): Boolean;
+var
+  PF, PF86: string;
+begin
+  PF := AddBackslash(ExpandConstant('{autopf}'));
+  PF86 := AddBackslash(ExpandConstant('{autopf32}'));
+
+  Result :=
+    StartsWithText(PF, AddBackslash(DirName)) or
+    StartsWithText(PF86, AddBackslash(DirName));
+end;
+
+function NextButtonClick(CurPageID: Integer): Boolean;
+var
+  SelectedDir: string;
+begin
+  Result := True;
+
+  if CurPageID = wpSelectDir then
+  begin
+    SelectedDir := WizardDirValue;
+
+    if IsInProgramFiles(SelectedDir) then
+    begin
+      MsgBox(
+        'Quiz.iy cannot be installed in Program Files because it needs write access to its own folder during normal use.' + #13#10#13#10 +
+        'Please choose another folder, for example:' + #13#10 +
+        ExpandConstant('{userdocs}\Quiz.iy'),
+        mbError, MB_OK);
+      Result := False;
+    end;
+  end;
+end;

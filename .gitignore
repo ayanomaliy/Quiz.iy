@@ -21,6 +21,6 @@
 .ionide
 
 build/
-dist/
+# dist/
 quiziy.spec
 quiz/__pycache__
